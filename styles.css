@@ -1,0 +1,135 @@
+:root {
+    --width: 100vw;
+    --height: 100vh;
+    --mainbg: hsl(204, 64%, 94%);
+    --center-border-bg: #2980b9;
+    --bg: 71, 81, 82;
+    --center-boxshadow: 0 1.4rem 2.8rem rgba(0, 0, 0, 0.25), 0 1rem 1rem rgba(0, 0, 0, 0.22);
+    --ballshadow: 0 1.4rem 2.8rem rgba(0, 0, 0, 0.25), 0 1rem 1rem rgba(0, 0, 0, 0.22);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.main-div {
+    width: var(--width);
+    height: var(--height);
+    display: grid;
+    place-items: center;
+    background: var(--mainbg);
+}
+
+.center-div {
+    width: 60%;
+    height: 60%;
+    border: 0.5rem solid var(--center-border-bg);
+    border-bottom-width: 5rem;
+    box-shadow: var(--center-boxshadow);
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.center-div span {
+    width: 0.5rem;
+    height: 70%;
+    background-color: rgba(var(--bg), 0.7);
+    display: block;
+    margin: 0 2.7rem;
+    position: relative;
+    transform-origin: top;
+}
+
+.center-div span::before {
+    content: "";
+    position: absolute;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background-color: rgba(var(--bg), 1);
+    transform: translateX(-50%);
+    bottom: 0;
+    box-shadow: var(--ballshadow);
+}
+
+.center-div span:first-child {
+    animation: leftball 2s linear infinite;
+}
+
+.center-div span:last-child {
+    animation: rightball 2s linear 1s infinite;
+}
+
+@keyframes leftball {
+    0% {
+        transform: rotate(0deg);
+    }
+    20% {
+        transform: rotate(45deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes rightball {
+    0% {
+        transform: rotate(0deg);
+    }
+    20% {
+        transform: rotate(-45deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    html {
+        font-size: 50%;
+    }
+}
+
+@media screen and (max-width: 998px) {
+    html {
+        font-size: 48%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 46%;
+    } 
+}
+
+@media screen and (max-width: 540px) {
+    html {
+        font-size: 38%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    html {
+        font-size: 26%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    html {
+        font-size: 18%;
+    }
+}
+
